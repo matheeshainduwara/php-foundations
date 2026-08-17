@@ -1,70 +1,75 @@
-# PHP Foundations (php-foundations)
+<div align="center">
 
-Hands-on examples and small exercises that teach core PHP concepts and common application patterns. The repository is organized as short, focused chapters covering basics (variables, types, operators), control structures, functions, arrays, forms, sessions, cookies, database connection, and mini projects.
+# 🐘 PHP Foundations
 
-## Stack
+*My hands-on PHP practice repo — from basics to forms, database, sessions & cookies.*
 
-- **Language(s):** PHP (primary), Hack (secondary)
-- **Runtime / Frameworks:** Plain PHP (examples are framework-agnostic). Some examples illustrate patterns used in modern PHP apps.
-- **Notable topics covered:** procedural PHP examples, array & string utilities, basic session/cookie handling, simple database connection patterns, and small mini-projects demonstrating CRUD and application flow.
+</div>
 
-## Repository structure
+---
 
-Top-level entries:
+## 📁 Topics Covered
 
-```text
-01-basics/            Intro to PHP: variables, data types, operators
-02-control-structures/ If/else, switch, match, loops, comparison & logical operators
-03-functions/         Example functions and small utilities
-04-arrays/            Array usage and array helper examples
-05-mini-projects/     Small apps and combined examples (e.g. student management)
-06-forms/             HTML forms and request handling examples
-07-db-connection/     Simple DB connection examples (mysqli / PDO)
-08-sessions/          Session start/access/destroy and visit counter examples
-09-cookies/           Cookie set/get/delete examples
-README.md             This file
+| # | Topic | Status |
+|---|-------|:------:|
+| 01 | Basics & Data Types | ✅ |
+| 02 | Control Structures | ✅ |
+| 03 | Functions | ✅ |
+| 04 | Arrays | ✅ |
+| 05 | Mini Projects | ✅ |
+| 06 | Forms | ✅ |
+| 07 | DB Connection | ✅ |
+| 08 | Sessions | ✅ |
+| 09 | Cookies | ✅ |
+
+---
+
+## 🧠 Key Concepts
+
+**Forms** — Collect and process user input from the browser.
+```php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = htmlspecialchars($_POST["name"]);
+    echo "Hello, $name!";
+}
 ```
 
-How it fits together: these are short, self-contained PHP scripts intended for learning. Files inside each chapter demonstrate individual concepts and can be run independently or combined to form small apps (see 05-mini-projects/ for a larger example).
+**DB Connection** — Connect to MySQL using PDO with prepared statements.
+```php
+$pdo = new PDO("mysql:host=localhost;dbname=mydb", "root", "");
+$stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?");
+$stmt->execute([$id]);
+```
 
-## How to run the examples
+**Sessions** — Store user data on the server across multiple pages.
+```php
+session_start();
+$_SESSION["username"] = "Matheesh";
+```
 
-Most examples are single-file scripts and can be run either from the CLI (php script.php) or served with PHP's built-in web server for web-focused examples.
+**Cookies** — Store small data in the browser that persists over time.
+```php
+setcookie("theme", "dark", time() + (86400 * 30));
+echo $_COOKIE["theme"];
+```
 
-From a fresh clone:
+---
+
+## 🚀 How to Run
 
 ```bash
-# clone
+# Clone the repo
 git clone https://github.com/matheeshainduwara/php-foundations.git
-cd php-foundations
 
-# run an example from the CLI
-php 03-functions/calculator.php
-
-# or start a local web server for web-form/session/cookie examples
-php -S 127.0.0.1:8000
-# then open http://127.0.0.1:8000/06-forms/01-html-forms/<filename>.php
+# Move into XAMPP htdocs or WAMP www folder
+# Start Apache & MySQL, then open in browser:
+http://localhost/php-foundations/07-db-connection/ConnectDatabase.php
 ```
 
-Notes:
-- Database examples in 07-db-connection are minimal; adjust credentials and/or switch to PDO as needed.
-- Examples are written for modern PHP versions; PHP 8.1+ is recommended.
+---
 
-## Contributing
+<div align="center">
 
-Contributions, corrections and additional examples are welcome. To contribute:
+⭐ **Star this repo if you find it helpful!**
 
-1. Fork the repository
-2. Create a branch for your change: `git checkout -b feature/your-example`
-3. Add your files / tests
-4. Commit and push; open a Pull Request describing the change
-
-Please prefer small, focused PRs that add a single concept or chapter.
-
-## License
-
-This repository is available under the MIT License. See the LICENSE file if present.
-
-## Contact
-
-Open an issue or submit a PR if you have suggestions or want to add examples.
+</div>
