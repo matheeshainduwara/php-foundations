@@ -63,7 +63,7 @@ git clone https://github.com/matheeshainduwara/php-foundations.git
 
 # Move into XAMPP htdocs or WAMP www folder
 # Start Apache & MySQL, then open in browser:
-http://localhost/php-foundations/07-db-connection/ConnectDatabase.php
+http://localhost/php-foundations/07-db-connection/dbconnection.php
 ```
 
 ---
